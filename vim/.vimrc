@@ -48,6 +48,8 @@ Plugin 'scrooloose/nerdtree'
 "运行./install
 "查找的时候输入LeaderfFile 文件地址
 Plugin 'Yggdroot/LeaderF'
+"vim文件内容搜索插件
+Plugin 'mileszs/ack.vim'
 call vundle#end()            " 必须
 filetype plugin indent on    " 必须 加载vim自带和插件相应的语法和文件类型相关脚本
 " 忽视插件改变缩进,可以使用以下替代:
@@ -122,8 +124,10 @@ func! CompileRunGcc()
 "修改配置文件立即生效
 "map<F12>:source $MYVIMRC<CR>
 "
-"fzf配置
-nnoremap <silent> <Leader>f :Files ./<CR>
-
+"fzf配置 在当前路径下搜索文件
+nnoremap <C-S-R> :Files ./<CR>
+"ack配置，unbuntu下需要先安装 apt install
+"ack-grep,以下命令增加感叹号是因为不自动打开第一个文件
+map <C-h> :Ack!<space>-i<space>
 
 
