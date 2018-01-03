@@ -7,61 +7,55 @@ set nu
 :set expandtab
 :%retab!
 
-"在windows下配置
-"set rtp+=$VIM/vimfiles/bundle/Vundle.vim
-"call vundle#begin('$VIM/vimfiles/bundle/')
+"将 https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim 下载下来的文件放在autoload文件夹中"
+call plug#begin('$VIM/vimfiles/bundle/')
 
-" 设置包括vundle和初始化相关的runtime path
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" 另一种选择, 指定一个vundle安装插件的路径
-
-"call vundle#begin('~/some/path/here')
-
-" 让vundle管理插件版本,必须
-Plugin 'VundleVim/Vundle.vim'
 
 " 以下范例用来支持不同格式的插件安装.
 " 请将安装插件的命令放在vundle#begin和vundle#end之间.
 " Github上的插件
 " 格式为 Plugin '用户名/插件仓库名'
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 "状态栏，装逼用的
-Plugin 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
 
 " 来自 http://vim-scripts.org/vim/scripts.html 的插件
-" Plugin '插件名称' 实际上是 Plugin 'vim-scripts/插件仓库名' 只是此处的用户名可以省略
-Plugin 'L9'
-" 由Git支持但不再github上的插件仓库 Plugin 'git clone 后面的地址'
-Plugin 'git://git.wincent.com/command-t.git'
-" 本地的Git仓库(例如自己的插件) Plugin 'file:///+本地插件仓库绝对路径'
-"Plugin 'file:///home/gmarik/path/to/plugin'
+" Plug '插件名称' 实际上是 Plug 'vim-scripts/插件仓库名' 只是此处的用户名可以省略
+Plug 'L9'
+
+"彩虹括号
+Plugin 'luochen1990/rainbow'
+let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
+
+
+" 本地的Git仓库(例如自己的插件) Plug 'file:///+本地插件仓库绝对路径'
+"Plug 'file:///home/gmarik/path/to/plug'
 "批量注释插件
-Plugin 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 
 "文件搜索
-Plugin 'junegunn/fzf',{ 'dir': '~/.fzf', 'do': './install --all' }
-Plugin 'junegunn/fzf.vim'
+Plug 'junegunn/fzf',{ 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 "主题
-Plugin 'sickill/vim-monokai'
+Plug 'sickill/vim-monokai'
 " 插件在仓库的子目录中.
 " 正确指定路径用以设置runtimepath. 以下范例插件在sparkup/vim目录下
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plug 'rstacruz/sparkup'
 " 安装L9，如果已经安装过这个插件，可利用以下格式避免命名冲突
-"Plugin 'ascenator/L9', {'name': 'newL9'}
-Plugin 'davidhalter/jedi-vim'
-Plugin 'scrooloose/nerdtree'
+"Plug 'ascenator/L9', {'name': 'newL9'}
+Plug 'davidhalter/jedi-vim'
+Plug 'scrooloose/nerdtree'
 " 你的所有插件需要在下面这行之前
 "文件搜索插件
 "这里要安装 apt install python-dev python3-dev
 "然后cd ~/.vim/bundle/LeaderF
 "运行./install
 "查找的时候输入LeaderfFile 文件地址
-Plugin 'Yggdroot/LeaderF'
+Plug 'Yggdroot/LeaderF'
 "vim文件内容搜索插件
-Plugin 'mileszs/ack.vim'
-call vundle#end()            " 必须
+Plug 'mileszs/ack.vim'
+call plug#end()            " 必须
 filetype plugin indent on    " 必须 加载vim自带和插件相应的语法和文件类型相关脚本
 " 忽视插件改变缩进,可以使用以下替代:
 "filetype plugin on
@@ -140,5 +134,3 @@ nnoremap <C-S-R> :Files ./<CR>
 "ack配置，unbuntu下需要先安装 apt install
 "ack-grep,以下命令增加感叹号是因为不自动打开第一个文件
 map <C-h> :Ack!<space>-i<space>
-
-
