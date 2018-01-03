@@ -19,6 +19,10 @@ Plugin 'VundleVim/Vundle.vim'
 " Github上的插件
 " 格式为 Plugin '用户名/插件仓库名'
 Plugin 'tpope/vim-fugitive'
+
+"状态栏，装逼用的
+Plugin 'vim-airline/vim-airline'
+
 " 来自 http://vim-scripts.org/vim/scripts.html 的插件
 " Plugin '插件名称' 实际上是 Plugin 'vim-scripts/插件仓库名' 只是此处的用户名可以省略
 Plugin 'L9'
